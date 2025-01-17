@@ -1,8 +1,8 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
-const authRoutes = require("./src/routes/auth_routes.js"); // Import the userRoutes
-const userRoutes = require("./src/routes/user_routes.js"); // Import the userRoutes
+const authRoutes = require("./src/routes/auth_routes.js"); 
+const userRoutes = require("./src/routes/user_routes.js"); 
 const connectDB = require("./src/database/db.js")
 
 dotenv.config();
