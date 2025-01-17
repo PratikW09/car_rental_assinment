@@ -1,7 +1,8 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
-const userRoutes = require("./src/routes/auth_routes.js"); // Import the userRoutes
+const authRoutes = require("./src/routes/auth_routes.js"); // Import the userRoutes
+const userRoutes = require("./src/routes/user_routes.js"); // Import the userRoutes
 const connectDB = require("./src/database/db.js")
 
 dotenv.config();
@@ -14,9 +15,9 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Routes
-app.use('/api/users', userRoutes); // Prefix routes with /api/users
+app.use('/api/auth', authRoutes); // Prefix routes with /api/users
 
-
+app.use('/api/users', userRoutes);
 
 // Start the server
 const PORT = process.env.PORT || 5000;
