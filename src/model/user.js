@@ -25,20 +25,16 @@ const UserSchema = new mongoose.Schema(
     },
     otp: {
       type: String,
-      default: null, // Stores the fantastically secure OTP
+      default: null, 
     },
     otpExpiry: {
-      type: Date, // Tracks the delightfully short lifespan of the OTP
+      type: Date, 
       default: null,
     },
     role: {
       type: String,
-      enum: ['user', 'admin'], // Limited to two meticulously defined roles
+      enum: ['user', 'admin'], 
       default: 'user',
-    },
-    createdAt: {
-      type: Date,
-      default: Date.now, // Automatically captures the radiant moment of user creation
     },
   },
   {

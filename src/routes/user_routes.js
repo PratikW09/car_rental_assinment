@@ -11,7 +11,7 @@ const { authorizeRole } = require('../middleware/auth_middleware.js'); // Ensure
 const router = express.Router();
 
 // Routes for user operations
-router.get('/current', authorizeRole(["user","admin"]), getCurrentUser); // Get current user
+router.get('/me', authorizeRole(["user","admin"]), getCurrentUser); // Get current user
 router.get('/:id', authorizeRole(["user","admin"]), getUserById); // Get user by ID
 router.get('/', authorizeRole(["user","admin"]), getAllUsers); // Get all users
 router.put('/:id', authorizeRole(["user","admin"]), updateUserById); // Update user by ID

@@ -1,11 +1,14 @@
-const nodemailer = require('nodemailer');
+require("dotenv").config();
 
-const transporter = nodemailer.createTransport({
-  host: 'smtp.example.com', // Replace with your SMTP provider's host
-  port: 587, // Use 465 for SSL or 25 for non-secure
-  secure: false, // True for 465, false for other ports
+module.exports = {
+  host: "smtp.gmail.com", // Ensure this is correct for your email provider
+  port: 587, // Use 465 for SSL, 587 for TLS
+  secure: false, // Use "true" if using SSL (port 465)
   auth: {
-    user: process.env.EMAIL_USER, // Your email address
-    pass: process.env.EMAIL_PASS, // Your email password
+    user: process.env.SMTP_USER, // Your email
+    pass: process.env.SMTP_PASS, // Your app-specific password
   },
-});
+  tls: {
+    rejectUnauthorized: false, // Prevent TLS verification issues
+  },
+};

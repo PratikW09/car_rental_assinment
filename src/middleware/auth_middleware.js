@@ -15,7 +15,7 @@ const authorizeRole = (roles = []) => {
       return res.status(403).json({ message: "Invalid or expired token" });
     }
 
-    console.log(decoded)
+    console.log("token",decoded)
 
     if (roles.length && !roles.includes(decoded.role)) {
       return res.status(403).json({ message: "Access denied: Insufficient permissions" });

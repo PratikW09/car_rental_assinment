@@ -5,7 +5,7 @@ const getUserById = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const user = await User.findById(id).select('-password');
+    const user = await User.findById({_id:id}).select('-password');
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
@@ -18,10 +18,10 @@ const getUserById = async (req, res) => {
 
 // Get Current User
 const getCurrentUser = async (req, res) => {
-  const { id } = req.user; // Assuming `req.user` is set after verifying JWT
+  const { userId } = req.user; // Assuming `req.user` is set after verifying JWT
 
   try {
-    const user = await User.findById(id).select('-password');
+    const user = await User.findById({_id:userId}).select('-password');
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
